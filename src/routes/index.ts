@@ -1,15 +1,8 @@
 import { Router } from 'express';
+import transactionRouter from './transaction.routes';
 
-const router = Router();
+const routes = Router();
 
-router.post('/users', (request, response) => {
-  const { name, email } = request.body;
+routes.use('/transactions', transactionRouter);
 
-  const user = {
-    name,
-    email,
-  };
-
-  return response.json(user);
-});
-export default router;
+export default routes;
